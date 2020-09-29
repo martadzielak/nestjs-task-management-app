@@ -1,10 +1,7 @@
-import { BadRequestException, PipeTransform } from "@nestjs/common";
+import { PipeTransform, BadRequestException } from '@nestjs/common';
+import { TaskStatus } from '../task-status.enum';
 
-import { PipeTransform as Transform } from '@nestjs/common'
-import { TaskStatus } from "../task-status.enum";
-
-
-export class TaskStatusValidationPipe implements Transform {
+export class TaskStatusValidationPipe implements PipeTransform {
     readonly allowedStatuses = [
         TaskStatus.OPEN,
         TaskStatus.IN_PROGRESS,
